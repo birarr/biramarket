@@ -1,0 +1,17 @@
+.content {
+  background-color: #03253a;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.title {
+  font-family: 'Englebert';
+  font-size: 48px;
+  color: #fff;
+}
+
+.logo {
+  width: 250px;
+  height: 250px;
+}

@@ -1,0 +1,46 @@
+.homeContainer {
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  height: 100vh;
+  background: #0e3a43;
+}
+
+.homeContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.contentTitle {
+  font-family: 'Englebert';
+  font-size: 48px;
+  color: #fff;
+}
+
+.shoppingList {
+  list-style: none;
+  color: #fff;
+  font-size: 20px;
+}
+
+.shoppingListItems {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+input[type='checkbox'] {
+  display: inline-block;
+  position: relative;
+  top: -1px;
+  width: 16px;
+  height: 16px;
+  margin: -1px 0px 0 0;
+  vertical-align: middle;
+  background: white left top no-repeat;
+  border: 1px solid #ccc;
+  cursor: pointer;
+}
+input[type='checkbox']:checked + span {
+  background: #d9534f -19px top no-repeat;
+}

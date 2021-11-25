@@ -1,0 +1,68 @@
+.navContainer {
+  background: #020a12;
+  border-radius: 4px;
+  width: 100%;
+  /* border: 1px solid white; */
+  /* box-shadow: 0px 24px 38px rgba(0, 0, 0, 0.14),
+    0px 9px 46px rgba(0, 0, 0, 0.12), 0px 11px 15px rgba(0, 0, 0, 0.2); */
+}
+
+.listTitle {
+  color: #fff;
+  font-family: 'Englebert';
+  padding: 20px 0 0 20px;
+}
+
+.inputForm {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+}
+
+.productsList {
+  color: #fff;
+  font-size: 20px;
+  font-family: 'Englebert';
+  padding: 0px 20px;
+  list-style: none;
+}
+
+.listInput {
+  background-color: #fff;
+  border-top-style: hidden;
+  border-right-style: hidden;
+  border-left-style: hidden;
+  border-bottom-style: groove;
+  background-color: #eee;
+  border-color: slategrey;
+  margin-left: 20px;
+  margin-right: 10px;
+  outline: none;
+  border-radius: 4px;
+  height: 20px;
+}
+
+li {
+  font-family: 'Englebert';
+  padding: 10px 0 10px 0;
+}
+
+a {
+  cursor: pointer;
+  text-decoration: none;
+  color: #fff;
+}
+
+.inputButton {
+  background-color: #5aa3ed;
+  text-align: center;
+  font-size: 18px;
+  color: #fff;
+  width: 80px;
+  border-radius: 4px;
+  border: none;
+  margin-right: 10px;
+}
+
+.inputButton:hover {
+  filter: brightness(0.9);
+}
