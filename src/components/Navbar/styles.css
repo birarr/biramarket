@@ -50,6 +50,11 @@ a {
   cursor: pointer;
   text-decoration: none;
   color: #fff;
+  transition: font-size 0.2s;
+}
+
+a:hover {
+  font-size: 24px;
 }
 
 .inputButton {
@@ -64,5 +69,5 @@ a {
 }
 
 .inputButton:hover {
-  filter: brightness(0.9);
+  filter: brightness(0.8);
 }

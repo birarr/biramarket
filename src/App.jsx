@@ -3,7 +3,10 @@ import { useState } from 'react'
 import { AppContext } from './components/context'
 
 import { Header } from './components/Header'
+import { Navbar } from './components/Navbar'
 import { Home } from './views/Home'
+
+import './styles.css'
 
 function App() {
   const [listItems, setListItems] = useState([])
@@ -22,8 +25,11 @@ function App() {
   return (
     <div className="App">
       <AppContext.Provider value={{ listItems, setListItems }}>
-        <Header className="header" />
-        <Home className="home" />
+        <Navbar className="navbar" />
+        <div className="appList">
+          <Header className="header" />
+          <Home className="home" />
+        </div>
       </AppContext.Provider>
     </div>
   )

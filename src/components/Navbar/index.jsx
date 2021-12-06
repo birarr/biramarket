@@ -1,16 +1,17 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import {
   getFirestore,
   collection,
-  onSnapshot,
   getDocs,
   addDoc,
   serverTimestamp,
   query,
   orderBy,
 } from 'firebase/firestore'
-import { useCallback, useMemo, useEffect, useState, useContext } from 'react'
+import { useCallback, useEffect, useState, useContext } from 'react'
 import { AppContext } from '../context'
+import logoImg from '../../assets/marketLogo3.png'
 
 import './styles.css'
 
@@ -23,8 +24,6 @@ export const Navbar = () => {
   const productsRef = collection(db, 'products')
   const q = query(productsRef, orderBy('name', 'asc'))
 
-  console.log(q)
-
   const fetchProducts = () => {
     getDocs(q).then((querySnapshot) => {
       const p = querySnapshot.docs.map((doc) => doc.data())
@@ -35,9 +34,6 @@ export const Navbar = () => {
   useEffect(() => {
     fetchProducts()
   }, [])
-
-  console.log(products)
-  console.log(value)
 
   const handleAddProduct = useCallback(
     (e) => {
@@ -63,13 +59,17 @@ export const Navbar = () => {
   const handleAddProductToShoppingList = (e) => {
     // setListItems(products)
     const productName = e.target.innerHTML.split(' ')
-    console.log(productName[1])
+    console.log(productName[1], listItems)
+    if (listItems.includes(productName[1])) {
+      alert('Produto is already on the cart!')
+      return
+    }
     setListItems([...listItems, productName[1]])
-    console.log(listItems)
   }
 
   return (
     <div className="navContainer">
+      <img src={logoImg} alt="" />
       <h1 className="listTitle">Products list</h1>
       <form className="inputForm" onSubmit={handleAddProduct}>
         <input
@@ -85,7 +85,7 @@ export const Navbar = () => {
       <ul className="productsList">
         {products.map((product) => {
           return (
-            <li>
+            <li key={product.name}>
               <a onClick={(e) => handleAddProductToShoppingList(e)}>
                 + {product.name}
               </a>
