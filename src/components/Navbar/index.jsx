@@ -10,6 +10,8 @@ import {
   orderBy,
 } from 'firebase/firestore'
 import { useCallback, useEffect, useState, useContext } from 'react'
+import { ToastContainer, toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 import { AppContext } from '../context'
 import logoImg from '../../assets/marketLogo3.png'
 
@@ -20,6 +22,11 @@ export const Navbar = () => {
   const db = getFirestore()
   const [products, setProducts] = useState([])
   const [value, setValue] = useState('')
+  const notify = () =>
+    toast.error('Produto is already on the cart', {
+      theme: 'dark',
+      position: toast.POSITION.BOTTOM_RIGHT,
+    })
 
   const productsRef = collection(db, 'products')
   const q = query(productsRef, orderBy('name', 'asc'))
@@ -61,7 +68,8 @@ export const Navbar = () => {
     const productName = e.target.innerHTML.split(' ')
     console.log(productName[1], listItems)
     if (listItems.includes(productName[1])) {
-      alert('Produto is already on the cart!')
+      // alert('Produto is already on the cart!')
+      notify()
       return
     }
     setListItems([...listItems, productName[1]])
@@ -93,6 +101,7 @@ export const Navbar = () => {
           )
         })}
       </ul>
+      <ToastContainer />
     </div>
   )
 }
