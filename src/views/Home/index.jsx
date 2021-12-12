@@ -1,16 +1,16 @@
 import { useCallback, useContext, useEffect, useState } from 'react'
 import { AppContext } from '../../components/context'
-import { Navbar } from '../../components/Navbar'
+// import { Navbar } from '../../components/Navbar'
 import './styles.css'
 
 export const Home = () => {
   const { listItems, setListItems } = useContext(AppContext)
-  const [newItems, setNewItems] = useState([])
+  const [setNewItems] = useState([])
 
   useEffect(() => {
     setNewItems(listItems)
     localStorage.setItem('items', JSON.stringify(listItems))
-  }, [listItems])
+  }, [listItems, setNewItems])
 
   const removeProduct = useCallback(
     (e) => {
