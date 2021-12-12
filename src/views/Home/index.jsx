@@ -5,7 +5,7 @@ import './styles.css'
 
 export const Home = () => {
   const { listItems, setListItems } = useContext(AppContext)
-  const [setNewItems] = useState([])
+  const [newItems, setNewItems] = useState([])
 
   useEffect(() => {
     setNewItems(listItems)
