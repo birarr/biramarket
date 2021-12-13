@@ -7,6 +7,8 @@ export const Home = () => {
   const { listItems, setListItems } = useContext(AppContext)
   const [newItems, setNewItems] = useState([])
 
+  console.log({ listItems })
+
   useEffect(() => {
     setNewItems(listItems)
     localStorage.setItem('items', JSON.stringify(listItems))
@@ -16,6 +18,7 @@ export const Home = () => {
     (e) => {
       e.preventDefault()
       const removedItem = e.target.parentNode.getAttribute('postId')
+      console.log({ removedItem })
       const filteredList = listItems?.filter((item) => item !== removedItem)
       console.log(filteredList)
       setListItems(filteredList)
@@ -37,7 +40,7 @@ export const Home = () => {
               })
               .map((item) => {
                 return (
-                  <div postId={item} className="shoppingListItems">
+                  <div postId={item} className="shoppingListItems" key={item}>
                     <input type="checkbox" />
                     <li>{item}</li>
                     <button

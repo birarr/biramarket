@@ -37,7 +37,7 @@ export const Navbar = () => {
       setProducts(p)
     })
   }
-  console.log({ listItems })
+
   useEffect(() => {
     fetchProducts()
   }, [])
